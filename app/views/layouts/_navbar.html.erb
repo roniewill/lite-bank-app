@@ -1,0 +1,17 @@
+<nav class="navbar navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="#">Bank Accounts</a>
+    </button>
+    <div class="d-flex">
+      <div class="dropdown">
+        <button class="btn dropdown-toggle" type="button" id="dropdownMenu" data-bs-toggle="dropdown" aria-expanded="false">
+          <%= current_user.email %>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+          <li><a class="dropdown-item" href="#">Profile</a></li>
+          <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
