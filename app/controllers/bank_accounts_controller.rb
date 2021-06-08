@@ -1,9 +1,9 @@
 class BankAccountsController < ApplicationController
-  before_action :set_bank_account, only: %i[ show edit update destroy ]
+  before_action :set_bank_account, only: %i[ show edit update destroy change_status ]
 
   # GET /bank_accounts or /bank_accounts.json
   def index
-    @bank_accounts = BankAccount.all
+    @bank_accounts = BankAccount.where(user_id: current_user.id)
   end
 
   # GET /bank_accounts/1 or /bank_accounts/1.json
@@ -56,6 +56,11 @@ class BankAccountsController < ApplicationController
     end
   end
 
+  def change_status
+    @bank_account.update(status: !@bank_account.status)
+    redirect_to action: :index
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_bank_account
@@ -64,6 +69,6 @@ class BankAccountsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def bank_account_params
-      params.require(:bank_account).permit(:account_number, :balance, :status, :user_id)
+      params.require(:bank_account).permit(:balance, :user_id, :status)
     end
 end

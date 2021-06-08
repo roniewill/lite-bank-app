@@ -11,27 +11,22 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :account_number %>
-    <%= form.text_field :account_number %>
+  <div class="mb-4">
+    <%= form.label :balance, class: "form-label" %>
+    <%= form.text_field :balance, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :balance %>
-    <%= form.text_field :balance %>
+  <div class="mb-4">
+    <%= form.hidden_field :user_id, value: "#{current_user.id}" %>
   </div>
 
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.check_box :status %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="d-grid">
+    <%= form.submit "Save", class: "btn btn-primary" %>
   </div>
 <% end %>
+
+<script>
+  $(document).ready(function(){
+    Inputmask("9", { repeat: 10 }).mask("#bank_account_balance");
+  });
+</script>

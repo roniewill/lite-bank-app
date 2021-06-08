@@ -12,9 +12,10 @@
 
   <body>
     <% if user_signed_in? %>
-      <%= render "layouts/navbar" %>
+      <%= render "shared/navbar" %>
     <% end %>
     <div class="container">
+      <%= render "shared/flash" %>
       <%= yield %>
     </div>
   </body>
