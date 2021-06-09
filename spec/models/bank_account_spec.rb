@@ -1,22 +1,22 @@
 require 'rails_helper'
 
 RSpec.describe BankAccount, :type => :model do
-  # before (:each) do
-  #   @account = create(:bank_account)
-  # end
-  
-  # context "Valid account" do     
-  #   it "is valid with a account_number" do
-  #     expect(@account).to be_valid
-  #   end
-
-
-describe "#load_defaults" do
-    it "sets an account_number before_validate" do
-      @account = BankAccount.new
-      expect(@account.account_number).to be_nil
-      @account.valid?
-      expect(@account.account_number).to be_present
-    end
+  before (:all) do
+    @account = build(:bank_account)
   end
+
+  it "is valid with valid attributes" do
+    expect(@account).to be_valid
+  end
+
+  it "is not valid without a balance" do
+    @account.balance = nil
+    expect(@account).to_not be_valid
+  end
+
+  it "is not valid without a account number" do
+    @account.account_number = '0000001'
+    expect(@account).to_not be_valid
+  end
+
 end
