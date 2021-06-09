@@ -1,18 +1,38 @@
-<p>
-  <strong>Account number:</strong>
-  <%= @bank_account.account_number %>
-</p>
+<div class="row justify-content-center mt-5">
 
-<p>
-  <strong>Balance:</strong>
-  <%= @bank_account.balance %>
-</p>
+  <div class="col-lg-4 col-md-8 col-sm-8">
+    <div class="card shadow">
+      <div class="card-title text-center border-bottom">
+        <h2 class="p-3">
+          <strong>Conta:</strong>
+          <%= @bank_account.account_number %>
+        </h2>
+      </div>
 
-<p>
-  <strong>Status:</strong>
-  <%= @bank_account.status === true ? "Enable" : "Disable" %>
-</p>
+      <div class="card-body">
+        <p>
+          <strong>Saldo:</strong>
+          <%= format_value_BRL(@bank_account.balance) %>
+        </p>
 
-
-<%= link_to 'Edit', edit_bank_account_path(@bank_account) %> |
-<%= link_to 'Back', bank_accounts_path %>
+        <p>
+          <strong>Status:</strong>
+          <%= @bank_account.status === true ? "Ativa" : "Encerrada" %>
+        </p>
+        <div class="mt-4">
+          <%= link_to 'Volta', bank_accounts_path %>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="col-12">
+          <small class="text-muted">Criada em: <%= l @bank_account.created_at, format: :long %> - <%= time_ago_in_words @bank_account.created_at  %></small>
+        </div>
+        <% if @bank_account.status === false  %>
+          <div class="col-12">
+            <small class="text-muted">Encerrada em: <%= l @bank_account.updated_at, format: :long %> - <%= time_ago_in_words @bank_account.updated_at  %></small>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
