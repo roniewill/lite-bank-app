@@ -13,9 +13,6 @@ module LiteBankApp
 
     config.i18n.default_locale = :'pt-BR'
 
-    Time::DATE_FORMATS[:default] = "%d/%m/%Y %H:%M"
-    Date::DATE_FORMATS[:default] = "%d/%m/%Y"
-
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
