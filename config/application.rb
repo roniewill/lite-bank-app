@@ -13,6 +13,9 @@ module LiteBankApp
 
     config.i18n.default_locale = :'pt-BR'
 
+    config.time_zone = 'Brasilia'
+    config.active_record.default_timezone = :local
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

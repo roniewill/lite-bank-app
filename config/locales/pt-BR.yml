@@ -1,6 +1,9 @@
 ---
 pt-BR:
   activerecord:
+    attributes:
+      bank_account:
+        balance: Saldo
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'
