@@ -3,7 +3,7 @@
   <div class="col-lg-4 col-md-8 col-sm-8">
     <div class="card shadow">
       <div class="card-title text-center border-bottom">
-        <h2 class="p-3">Log In</h2>
+        <h2 class="p-3">LogIn</h2>
       </div>
 
       <div class="card-body">
@@ -14,19 +14,12 @@
           </div>
 
           <div class="mb-4">
-            <%= f.label :password, class: "form-label" %>
+            <%= f.label 'Senha', class: "form-label" %>
             <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
           </div>
 
-          <% if devise_mapping.rememberable? %>
-            <div class="mb-4">
-              <%= f.check_box :remember_me %>
-              <%= f.label :remember_me %>
-            </div>
-          <% end %>
-
           <div class="d-grid">
-            <%= f.submit "Log In", class: "btn btn-primary" %>
+            <%= f.submit "Entrar", class: "btn btn-primary" %>
           </div>
         <% end %>
         <%= render "users/shared/links" %>

@@ -3,7 +3,7 @@
   <div class="col-lg-4 col-md-8 col-sm-8">
     <div class="card shadow">
       <div class="card-title text-center border-bottom">
-        <h2 class="p-3">Sign up</h2>
+        <h2 class="p-3">Novo Usuário</h2>
       </div>
 
       <div class="card-body">
@@ -21,17 +21,17 @@
           </div>
 
           <div class="mb-4">
-            <%= f.label :password, class: "form-label" %>
+            <%= f.label 'Senha', class: "form-label" %>
             <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
           </div>
 
           <div class="mb-4">
-            <%= f.label :password_confirmation, class: "form-label" %>
+            <%= f.label "Confirme a senha", class: "form-label" %>
             <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
           </div>
 
           <div class="d-grid">
-            <%= f.submit "Sign up", class: "btn btn-primary" %>
+            <%= f.submit "Cadastrar", class: "btn btn-primary" %>
           </div>
         <% end %>
         <%= render "users/shared/links" %>
