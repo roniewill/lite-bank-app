@@ -3,7 +3,7 @@
 class Transaction < ApplicationRecord
   belongs_to :bank_account
 
-  TRANSACTION_TYPES = %w[saque depósito transferência].freeze
+  TRANSACTION_TYPES = %w[transfer withdraw deposit].freeze
 
   validates :bank_account, presence: true
   validates :amount, presence: true, numericality: true

@@ -22,7 +22,7 @@ RSpec.describe Transaction, type: :model do
   end
 
   it 'is not valid without a amount' do
-    @transaction.transaction_type = 'pagamento'
+    @transaction.transaction_type = 'payment'
     expect(@transaction).to_not be_valid
   end
 
