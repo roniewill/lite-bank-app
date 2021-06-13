@@ -13,7 +13,7 @@
               <th>Conta</th>
               <th>Saldo</th>
               <th>Status</th>
-              <th colspan="3"></th>
+              <th></th>
             </tr>
           </thead>
 
@@ -23,9 +23,16 @@
                 <td><%= bank_account.account_number %></td>
                 <td><%= format_value_BRL(bank_account.balance) %></td>
                 <td><%= bank_account.status ? "Ativada" : "Desativada" %></td>
-                <td><%= link_to 'Detalhes', bank_account %></td>
                 <td>
-                  <%= link_to bank_account.status ? "Encerrar conta" : "Ativar conta", change_status_bank_account_path(bank_account), method: :put, data: { confirm: 'Você tem certeza?' } %>
+                  <div class="float-end">
+                    <%= link_to 'Detalhes', bank_account, class: "btn btn-info" %>
+                    <%= link_to bank_account.status ? "Encerrar conta" : "Ativar conta", 
+                      change_status_bank_account_path(bank_account), 
+                      method: :put, 
+                      data: { confirm: 'Você tem certeza?' }, 
+                      class: "btn btn-warning"
+                    %>
+                  </div>
                 </td>
               </tr>
             <% end %>

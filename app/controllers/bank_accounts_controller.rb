@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class BankAccountsController < ApplicationController
-  before_action :set_bank_account, only: %i[ show edit update destroy change_status ]
+  before_action :set_bank_account, only: %i[show edit update destroy change_status]
 
   # GET /bank_accounts or /bank_accounts.json
   def index
@@ -7,8 +9,7 @@ class BankAccountsController < ApplicationController
   end
 
   # GET /bank_accounts/1 or /bank_accounts/1.json
-  def show
-  end
+  def show; end
 
   # GET /bank_accounts/new
   def new
@@ -16,8 +17,7 @@ class BankAccountsController < ApplicationController
   end
 
   # GET /bank_accounts/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /bank_accounts or /bank_accounts.json
   def create
@@ -25,7 +25,7 @@ class BankAccountsController < ApplicationController
 
     respond_to do |format|
       if @bank_account.save
-        format.html { redirect_to @bank_account, notice: "Bank account was successfully created." }
+        format.html { redirect_to @bank_account, notice: 'Bank account was successfully created.' }
         format.json { render :show, status: :created, location: @bank_account }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class BankAccountsController < ApplicationController
   def update
     respond_to do |format|
       if @bank_account.update(bank_account_params)
-        format.html { redirect_to @bank_account, notice: "Bank account was successfully updated." }
+        format.html { redirect_to @bank_account, notice: 'Bank account was successfully updated.' }
         format.json { render :show, status: :ok, location: @bank_account }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -51,7 +51,7 @@ class BankAccountsController < ApplicationController
   def destroy
     @bank_account.destroy
     respond_to do |format|
-      format.html { redirect_to bank_accounts_url, notice: "Bank account was successfully destroyed." }
+      format.html { redirect_to bank_accounts_url, notice: 'Bank account was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -61,18 +61,19 @@ class BankAccountsController < ApplicationController
       @bank_account.update(status: !@bank_account.status)
       redirect_to action: :index
     else
-      redirect_to bank_accounts_url, flash: { error: "Para encerrar sua conta você precisa ter saldo igual a 0" }
+      redirect_to bank_accounts_url, flash: { error: 'Para encerrar sua conta você precisa ter saldo igual a 0' }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_bank_account
-      @bank_account = BankAccount.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def bank_account_params
-      params.require(:bank_account).permit(:balance, :user_id, :status)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_bank_account
+    @bank_account = BankAccount.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def bank_account_params
+    params.require(:bank_account).permit(:balance, :user_id, :status)
+  end
 end

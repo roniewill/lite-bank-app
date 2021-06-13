@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
 
@@ -5,9 +7,9 @@ class ApplicationController < ActionController::Base
 
   protected
 
-    def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_up) do |user|
-        user.permit(:name, :email, :password, :password_confirmation)
-      end
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up) do |user|
+      user.permit(:name, :email, :password, :password_confirmation)
     end
+  end
 end

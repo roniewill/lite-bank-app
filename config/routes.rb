@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   resources :transactions
   resources :bank_accounts do
@@ -6,5 +8,5 @@ Rails.application.routes.draw do
     end
   end
   devise_for :users
-  root to: "bank_accounts#index"
+  root to: 'bank_accounts#index'
 end
