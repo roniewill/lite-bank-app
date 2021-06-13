@@ -24,8 +24,10 @@
           <%= link_to @bank_account.status ? "Encerrar conta" : "Ativar conta", 
             change_status_bank_account_path(@bank_account), 
             method: :put, data: { confirm: 'Você tem certeza?' }, class: "btn btn-warning" %>
-          <% if @bank_account.status %>
-            <%= link_to 'Fazer uma transação', bank_accounts_path, class: "btn btn-success" %>
+          <% if @bank_account.status && @bank_account.balance > 0 %>
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#transactionModal">
+              Launch demo modal
+            </button>
           <% end %>
         </div>
       </div>
@@ -36,6 +38,45 @@
         <% if @bank_account.status === false  %>
           <div class="col-12">
             <small class="text-muted">Encerrada em: <%= l @bank_account.updated_at, format: :long %> - <%= time_ago_in_words @bank_account.updated_at  %></small>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="transactionModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Nova Operação</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= form_with(model: @bank_account) do |form| %>
+          <% if @bank_account.errors.any? %>
+            <div class="alert alert-danger" role="alert">
+              <ul>
+                <% @bank_account.errors.each do |error| %>
+                  <li><%= error.full_message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="mb-4">
+            <%= form.label (@bank_account.new_record? ? 'Valor Inicial' : 'Valor para deposito'), class: "form-label" %>
+            <%= form.text_field :balance, class: "form-control" %>
+          </div>
+
+          <div class="mb-4">
+            <%= form.hidden_field :user_id, value: "#{current_user.id}" %>
+          </div>
+
+          <div class="mb-4">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sair</button>
+            <%= form.submit "Efetuar", class: "btn btn-primary" %>
           </div>
         <% end %>
       </div>
