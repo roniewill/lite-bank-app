@@ -60,7 +60,8 @@ class BankAccountsController < ApplicationController
 
   def change_status
     if @bank_account.balance === 0
-      @bank_account.update(status: !@bank_account.status)
+      status = @bank_account.status === "active" ? "inactive" : "active"
+      @bank_account.update(status: status)
       redirect_to action: :index
     else
       redirect_to bank_accounts_url, flash: { error: 'Para encerrar sua conta você precisa ter saldo igual a 0' }

@@ -19,14 +19,14 @@
 
           <tbody>
             <% @bank_accounts.each do |bank_account| %>
-              <tr class="table-<%= bank_account.status ? "light" : "danger" %>">
+              <tr class="table-<%= bank_account.status === "active" ? "light" : "danger" %>">
                 <td><%= bank_account.account_number %></td>
                 <td><%= format_value_BRL(bank_account.balance) %></td>
-                <td><%= bank_account.status ? "Ativada" : "Desativada" %></td>
+                <td><%= bank_account.status === "active" ? "Ativada" : "Desativada" %></td>
                 <td>
                   <div class="float-end">
                     <%= link_to 'Detalhes', bank_account, class: "btn btn-info" %>
-                    <%= link_to bank_account.status ? "Encerrar conta" : "Ativar conta", 
+                    <%= link_to bank_account.status === "active" ? "Encerrar conta" : "Ativar conta", 
                       change_status_bank_account_path(bank_account), 
                       method: :put, 
                       data: { confirm: 'Você tem certeza?' }, 

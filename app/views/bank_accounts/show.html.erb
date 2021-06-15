@@ -17,14 +17,14 @@
 
         <p>
           <strong>Conta:</strong>
-          <%= @bank_account.status === true ? "Ativa" : "Encerrada" %>
+          <%= @bank_account.status === "active" ? "Ativa" : "Encerrada" %>
         </p>
         <div class="mt-4">
           <%= link_to 'Voltar', bank_accounts_path, class: "btn btn-primary" %>
-          <%= link_to @bank_account.status ? "Encerrar conta" : "Ativar conta", 
+          <%= link_to @bank_account.status === "active" ? "Encerrar conta" : "Ativar conta", 
             change_status_bank_account_path(@bank_account), 
             method: :put, data: { confirm: 'Você tem certeza?' }, class: "btn btn-warning" %>
-          <% if @bank_account.status && @bank_account.balance > 0 %>
+          <% if @bank_account.status? && @bank_account.balance > 0 %>
             <%= link_to 'Nova Operação', new_transaction_path,  {:remote => true, 'data-bs-toggle' =>  "modal", 'data-bs-target' => '#modal-window', class: 'btn btn-success', id: 'btnCallModal'}  %>
           <% end %>
         </div>
@@ -33,7 +33,7 @@
         <div class="col-12">
           <small class="text-muted">Criada em: <%= l @bank_account.created_at, format: :long %> - <%= time_ago_in_words @bank_account.created_at  %></small>
         </div>
-        <% if @bank_account.status === false  %>
+        <% if @bank_account.status === "inactive"  %>
           <div class="col-12">
             <small class="text-muted">Encerrada em: <%= l @bank_account.updated_at, format: :long %> - <%= time_ago_in_words @bank_account.updated_at  %></small>
           </div>

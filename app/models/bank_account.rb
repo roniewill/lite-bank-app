@@ -5,7 +5,7 @@ class BankAccount < ApplicationRecord
 
   has_many :transactions
 
-  enum status: [ :active, :inactive ]
+  enum status: [ :inactive, :active ]
 
   validates :account_number, presence: true, uniqueness: true
   validates :balance, presence: true, numericality: true
