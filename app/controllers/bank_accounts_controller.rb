@@ -9,7 +9,9 @@ class BankAccountsController < ApplicationController
   end
 
   # GET /bank_accounts/1 or /bank_accounts/1.json
-  def show; end
+  def show
+    @transaction = Transaction.new
+  end
 
   # GET /bank_accounts/new
   def new

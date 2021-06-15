@@ -1,37 +1,55 @@
-<%= form_with(model: transaction) do |form| %>
-  <% if transaction.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
-
+<%= form_for @transaction, remote: true do |form| %>
+  <% if @transaction.errors.any? %>
+    <div class="alert alert-danger" role="alert">
       <ul>
-        <% transaction.errors.each do |error| %>
+        <% @transaction.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :bank_account_id %>
-    <%= form.text_field :bank_account_id %>
+  <div class="mb-4">
+    <%= form.label 'Qual tipo de operação?', class: "form-label" %>
+    <%= form.select :transaction_type, options_for_select([['----------------', 'default'], ['Transferência', 'transfer'], ['Deposito', 'deposit'], ['Saque', 'withdraw']]), {}, { class: "form-select" } %>
+  </div>
+  
+  <div class="mb-4 box-amount" style="display: none;">
+    <%= form.label 'Valor', class: "form-label" %>
+    <%= form.text_field :amount, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :amount %>
-    <%= form.text_field :amount %>
+  <div class="mb-4 box-account" style="display: none;">
+    <%= form.label 'Conta', class: "form-label" %>
+    <%= form.text_field :bank_account_id, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :transaction_type %>
-    <%= form.text_field :transaction_type %>
-  </div>
-
-  <div class="field">
-    <%= form.label :transaction_number %>
-    <%= form.text_field :transaction_number %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="mb-4">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sair</button>
+    <%= form.submit "Efetuar", class: "btn btn-success" %>
   </div>
 <% end %>
+
+<script>
+  $(document).ready(function(){
+    balance = $("#transaction_amount").val()
+    options = $("#transaction_transaction_type")
+
+    options.on('change',function(){
+      selected = $(this).val()
+
+      if (selected === 'withdraw' || selected === 'deposit' ) {
+        $('.box-amount').css('display', 'block')
+        $('.box-account').css('display', 'none')
+      }  
+      
+      if (selected === 'transfer') {
+        $('.box-amount').css('display', 'block')
+        $('.box-account').css('display', 'block')
+      }
+    })
+    
+    Inputmask("9", { repeat: 10 }).mask("#transaction_amount");
+    Inputmask("9", { repeat: 10 }).mask("#transaction_bank_account_id");
+  })
+</script>

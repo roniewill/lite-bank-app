@@ -14,6 +14,10 @@ class TransactionsController < ApplicationController
   # GET /transactions/new
   def new
     @transaction = Transaction.new
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /transactions/1/edit
@@ -26,10 +30,10 @@ class TransactionsController < ApplicationController
     respond_to do |format|
       if @transaction.save
         format.html { redirect_to @transaction, notice: 'Transaction was successfully created.' }
-        format.json { render :show, status: :created, location: @transaction }
+        format.js { render :success }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @transaction.errors, status: :unprocessable_entity }
+        format.js { render :new }
       end
     end
   end

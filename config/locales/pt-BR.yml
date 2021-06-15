@@ -4,6 +4,10 @@ pt-BR:
     attributes:
       bank_account:
         balance: Saldo
+      transaction:
+        bank_account: Conta
+        amount: Valor
+        transaction_type: Tipo de Operação
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'
