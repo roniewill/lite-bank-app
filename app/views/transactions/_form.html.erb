@@ -21,7 +21,11 @@
 
   <div class="mb-4 box-account" style="display: none;">
     <%= form.label 'Conta', class: "form-label" %>
-    <%= form.text_field :bank_account_id, class: "form-control" %>
+    <%= form.select :bank_account_id, options_for_select(@accounts), {}, { class: "form-select" } %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.hidden_field :account_sender, value: "#{@account_number}" %>
   </div>
 
   <div class="mb-4">
@@ -33,17 +37,28 @@
 <script>
   $(document).ready(function(){
     balance = $("#transaction_amount").val()
-    options = $("#transaction_transaction_type")
+    transaction_type = $("#transaction_transaction_type")
+    accounts = $("#transaction_bank_account_id option:selected").toArray().map(item => item.text).join()
+    account_number = "<%= @account_number %>"
+    user_id = "<%= @user_id %>"
 
-    options.on('change',function(){
+    console.log({ user_id })
+
+    transaction_type.on('change',function(){
       selected = $(this).val()
 
-      if (selected === 'withdraw' || selected === 'deposit' ) {
+      if (selected === 'withdraw' ) {
         $('.box-amount').css('display', 'block')
         $('.box-account').css('display', 'none')
+
+        accounts.each(function(account_number){
+            if ($(this).val() === account_number) {
+              console.log($(this).val())
+            }
+        });
       }  
       
-      if (selected === 'transfer') {
+      if (selected === 'transfer' || selected === 'deposit') {
         $('.box-amount').css('display', 'block')
         $('.box-account').css('display', 'block')
       }

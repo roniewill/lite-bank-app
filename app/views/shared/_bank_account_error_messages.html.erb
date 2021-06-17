@@ -1,0 +1,11 @@
+<% if @bank_account.errors.any? %>
+  <script type= "text/javascript">
+
+    <% @bank_account.errors.each do |error| %>
+
+      toastr.error('<%= error.full_message %>');
+
+    <% end %>
+
+  </script>
+<% end %>

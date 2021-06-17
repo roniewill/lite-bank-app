@@ -14,6 +14,9 @@ class TransactionsController < ApplicationController
   # GET /transactions/new
   def new
     @transaction = Transaction.new
+    @accounts = BankAccount.all.collect {|p| [ "#{p.account_number} - #{p.user.name}", p.id ]}
+    @account_number = params[:account_number]
+    @user_id = User.left_outer_joins(:bank_accounts).where(bank_accounts: { account_number: params[:account_number] }).pluck(:id)
     respond_to do |format|
       format.html
       format.js
@@ -29,8 +32,9 @@ class TransactionsController < ApplicationController
 
     respond_to do |format|
       if @transaction.save
+        flash[:success] = 'Operação efetuado com sucesso'
         format.html { redirect_to @transaction, notice: 'Transaction was successfully created.' }
-        format.js { render :success }
+        format.js { render 'success' }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.js { render :new }
@@ -43,10 +47,10 @@ class TransactionsController < ApplicationController
     respond_to do |format|
       if @transaction.update(transaction_params)
         format.html { redirect_to @transaction, notice: 'Transaction was successfully updated.' }
-        format.json { render :show, status: :ok, location: @transaction }
+        format.js { render :show, status: :ok, location: @transaction }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @transaction.errors, status: :unprocessable_entity }
+        format.js { render json: @transaction.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -69,6 +73,6 @@ class TransactionsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def transaction_params
-    params.require(:transaction).permit(:bank_account_id, :amount, :transaction_type, :transaction_number)
+    params.require(:transaction).permit(:bank_account_id, :amount, :transaction_type, :transaction_number, :account_sender)
   end
 end

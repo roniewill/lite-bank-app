@@ -25,7 +25,7 @@
             change_status_bank_account_path(@bank_account), 
             method: :put, data: { confirm: 'Você tem certeza?' }, class: "btn btn-warning" %>
           <% if @bank_account.status? && @bank_account.balance > 0 %>
-            <%= link_to 'Nova Operação', new_transaction_path,  {:remote => true, 'data-bs-toggle' =>  "modal", 'data-bs-target' => '#modal-window', class: 'btn btn-success', id: 'btnCallModal'}  %>
+            <%= link_to 'Nova Operação', new_transaction_path(:account_number => @bank_account.account_number),  {:remote => true, 'data-bs-toggle' =>  "modal", 'data-bs-target' => '#modal-window', class: 'btn btn-success', id: 'btnCallModal'}  %>
           <% end %>
         </div>
       </div>
