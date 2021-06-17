@@ -16,7 +16,9 @@ class TransactionsController < ApplicationController
     @transaction = Transaction.new
     @accounts = BankAccount.all.collect {|p| [ "#{p.account_number} - #{p.user.name}", p.id ]}
     @account_number = params[:account_number]
-    @user_id = User.left_outer_joins(:bank_accounts).where(bank_accounts: { account_number: params[:account_number] }).pluck(:id)
+    @user_id = BankAccount.find_by(account_number: params[:account_number])&.user_id
+    @balance = BankAccount.find_by(account_number: params[:account_number])&.balance
+    
     respond_to do |format|
       format.html
       format.js

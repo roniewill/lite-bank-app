@@ -38,27 +38,25 @@
   $(document).ready(function(){
     balance = $("#transaction_amount").val()
     transaction_type = $("#transaction_transaction_type")
-    accounts = $("#transaction_bank_account_id option:selected").toArray().map(item => item.text).join()
     account_number = "<%= @account_number %>"
-    user_id = "<%= @user_id %>"
 
-    console.log({ user_id })
+    select_options = $("#transaction_bank_account_id option")
 
     transaction_type.on('change',function(){
       selected = $(this).val()
 
-      if (selected === 'withdraw' ) {
+      if (selected === 'withdraw' || selected === 'deposit') {
         $('.box-amount').css('display', 'block')
         $('.box-account').css('display', 'none')
 
-        accounts.each(function(account_number){
-            if ($(this).val() === account_number) {
-              console.log($(this).val())
-            }
-        });
+        select_options.filter(function() {
+          if (this.text.includes(account_number)) {
+            return this.text
+          }
+        }).attr('selected', true);
       }  
       
-      if (selected === 'transfer' || selected === 'deposit') {
+      if (selected === 'transfer') {
         $('.box-amount').css('display', 'block')
         $('.box-account').css('display', 'block')
       }
