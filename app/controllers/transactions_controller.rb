@@ -2,6 +2,7 @@
 
 class TransactionsController < ApplicationController
   before_action :set_transaction, only: %i[show edit update destroy]
+  before_action :set_account_collections
 
   # GET /transactions or /transactions.json
   def index
@@ -14,9 +15,7 @@ class TransactionsController < ApplicationController
   # GET /transactions/new
   def new
     @transaction = Transaction.new
-    @accounts = BankAccount.all.collect {|p| [ "#{p.account_number} - #{p.user.name}", p.id ]}
     @account_number = params[:account_number]
-    @user_id = BankAccount.find_by(account_number: params[:account_number])&.user_id
     @balance = BankAccount.find_by(account_number: params[:account_number])&.balance
     
     respond_to do |format|
@@ -71,6 +70,10 @@ class TransactionsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_transaction
     @transaction = Transaction.find(params[:id])
+  end
+
+  def set_account_collections
+    @accounts = BankAccount.all.collect {|p| [ "#{p.account_number} - #{p.user.name}", p.id ]}
   end
 
   # Only allow a list of trusted parameters through.
