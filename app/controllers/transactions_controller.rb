@@ -73,7 +73,7 @@ class TransactionsController < ApplicationController
   end
 
   def set_account_collections
-    @accounts = BankAccount.all.collect {|p| [ "#{p.account_number} - #{p.user.name}", p.id ]}
+    @accounts = BankAccount.includes(:user).map { |acc| ["#{acc.account_number} - #{acc.user.name}", acc.id] }
   end
 
   # Only allow a list of trusted parameters through.
