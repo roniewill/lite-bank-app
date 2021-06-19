@@ -5,7 +5,7 @@ class BankAccount < ApplicationRecord
 
   has_many :transactions
 
-  enum status: [ :inactive, :active ]
+  enum status: %i[inactive active]
 
   validates :account_number, presence: true, uniqueness: true
   validates :balance, presence: true, numericality: true
@@ -17,7 +17,7 @@ class BankAccount < ApplicationRecord
   def load_defaults
     if new_record?
       self.account_number = '%05d' % rand(5**10)
-      self.status = "active"
+      self.status = 'active'
     end
   end
 end

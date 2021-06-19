@@ -17,7 +17,7 @@ class TransactionsController < ApplicationController
     @transaction = Transaction.new
     @account_number = params[:account_number]
     @balance = BankAccount.find_by(account_number: params[:account_number])&.balance
-    
+
     respond_to do |format|
       format.html
       format.js
@@ -78,6 +78,7 @@ class TransactionsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def transaction_params
-    params.require(:transaction).permit(:bank_account_id, :amount, :transaction_type, :transaction_number, :account_sender)
+    params.require(:transaction).permit(:bank_account_id, :amount, :transaction_type, :transaction_number,
+                                        :account_sender)
   end
 end

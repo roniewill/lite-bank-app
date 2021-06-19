@@ -60,7 +60,7 @@ class BankAccountsController < ApplicationController
 
   def change_status
     if @bank_account.balance === 0
-      status = @bank_account.status === "active" ? "inactive" : "active"
+      status = @bank_account.status === 'active' ? 'inactive' : 'active'
       @bank_account.update(status: status)
       redirect_to action: :index
     else
