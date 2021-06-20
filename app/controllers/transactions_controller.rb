@@ -29,16 +29,20 @@ class TransactionsController < ApplicationController
 
   # POST /transactions or /transactions.json
   def create
-    @transaction = Transaction.new(transaction_params)
+    @transaction = Transaction.new
+    @account_number = transaction_params[:account_sender]
+    errors = ::BankAccounts::ValidateTransaction.call(transaction_params)
 
     respond_to do |format|
-      if @transaction.save
+      if errors.size > 0
+        @transaction.errors.add(:base, errors.join(', '))
+        format.html { render :new, status: :unprocessable_entity }
+        format.js { render :new }
+      else
+        ::BankAccounts::PerformTransaction.call(transaction_params)
         flash[:success] = 'Operação efetuado com sucesso'
         format.html { redirect_to @transaction, notice: 'Transaction was successfully created.' }
         format.js { render 'success' }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.js { render :new }
       end
     end
   end
