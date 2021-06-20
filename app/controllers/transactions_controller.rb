@@ -34,7 +34,7 @@ class TransactionsController < ApplicationController
     errors = ::BankAccounts::ValidateTransaction.call(transaction_params)
 
     respond_to do |format|
-      if errors.size > 0
+      if errors.size.positive?
         @transaction.errors.add(:base, errors.join(', '))
         format.html { render :new, status: :unprocessable_entity }
         format.js { render :new }

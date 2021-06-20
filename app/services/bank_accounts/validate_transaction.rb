@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "ostruct"
+require 'ostruct'
 
 module BankAccounts
   class ValidateTransaction < ApplicationService
@@ -16,7 +16,6 @@ module BankAccounts
     end
 
     def call
-
       validate_existence_of_account!
 
       validate_transaction_type!
@@ -45,7 +44,9 @@ module BankAccounts
     end
 
     def valide_transfer_when_account_sender_is_same_account_receive!
-      @errors << 'Essa operação não pode ser feita para mesma conta' if @account_receive.account_number === @account_sender.account_number
+      if @account_receive.account_number === @account_sender.account_number
+        @errors << 'Essa operação não pode ser feita para mesma conta'
+      end
     end
 
     def validate_transaction_type!
@@ -59,6 +60,5 @@ module BankAccounts
         @errors << 'Operação invalida'
       end
     end
-
   end
 end

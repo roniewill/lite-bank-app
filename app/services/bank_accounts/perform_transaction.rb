@@ -2,7 +2,6 @@
 
 module BankAccounts
   class PerformTransaction < ApplicationService
-
     def initialize(transaction_params)
       transaction = OpenStruct.new(transaction_params)
       @amount = transaction.amount.to_f
