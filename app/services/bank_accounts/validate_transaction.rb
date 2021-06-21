@@ -61,8 +61,6 @@ module BankAccounts
       end
     end
 
-    def rate_calculation
-      
-    end
+    def rate_calculation; end
   end
 end

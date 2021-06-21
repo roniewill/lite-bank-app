@@ -78,8 +78,4 @@ class BankAccountsController < ApplicationController
   def bank_account_params
     params.require(:bank_account).permit(:balance, :user_id, :status)
   end
-
-  def updated_status status
-    @bank_account.update(status: status)
-  end
 end

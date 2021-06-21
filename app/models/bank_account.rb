@@ -27,7 +27,7 @@ class BankAccount < ApplicationRecord
     elsif inactive? && balance >= 0
       update_attribute :status, 'active'
     else
-      return false
+      false
     end
   end
 end
