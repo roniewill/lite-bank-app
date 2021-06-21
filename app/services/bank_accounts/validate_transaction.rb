@@ -60,5 +60,9 @@ module BankAccounts
         @errors << 'Operação invalida'
       end
     end
+
+    def rate_calculation
+      
+    end
   end
 end

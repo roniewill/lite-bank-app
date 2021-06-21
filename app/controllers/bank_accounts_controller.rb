@@ -59,12 +59,11 @@ class BankAccountsController < ApplicationController
   end
 
   def change_status
-    if @bank_account.balance === 0
-      status = @bank_account.status === 'active' ? 'inactive' : 'active'
-      @bank_account.update(status: status)
-      redirect_to action: :index
+    if @bank_account.change_status
+      message = @bank_account.active? ? 'Conta ativada com sucesso!' : 'Conta encerrada com sucesso!'
+      redirect_to bank_accounts_path, flash: { success: message }
     else
-      redirect_to bank_accounts_url, flash: { error: 'Para encerrar sua conta você precisa ter saldo igual a 0' }
+      redirect_to bank_accounts_path, flash: { error: 'Pra encerrar sua conta seu saldo precisa ser 0' }
     end
   end
 
@@ -78,5 +77,9 @@ class BankAccountsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def bank_account_params
     params.require(:bank_account).permit(:balance, :user_id, :status)
+  end
+
+  def updated_status status
+    @bank_account.update(status: status)
   end
 end

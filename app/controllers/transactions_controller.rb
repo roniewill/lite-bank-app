@@ -40,7 +40,7 @@ class TransactionsController < ApplicationController
         format.js { render :new }
       else
         ::BankAccounts::PerformTransaction.call(transaction_params)
-        flash[:success] = 'Operação efetuado com sucesso'
+        flash[:success] = 'Operação efetuada com sucesso'
         format.html { redirect_to @transaction, notice: 'Transaction was successfully created.' }
         format.js { render 'success' }
       end
