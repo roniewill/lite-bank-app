@@ -15,5 +15,6 @@ class Transaction < ApplicationRecord
 
   def load_defaults
     self.transaction_number = SecureRandom.uuid if new_record?
+    self.taxe = 0 if new_record?
   end
 end
