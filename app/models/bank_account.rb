@@ -31,4 +31,3 @@ class BankAccount < ApplicationRecord
     end
   end
 end
-

@@ -56,6 +56,7 @@ module BankAccounts
       when 'transfer'
         validate_transfer!
         valide_transfer_when_account_sender_is_same_account_receive!
+      when 'deposit'
       else
         @errors << 'Operação invalida'
       end
