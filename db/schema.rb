@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2021_06_21_200850) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "account_sender"
-    t.integer "taxe"
+    t.integer "fee"
     t.index ["bank_account_id"], name: "index_transactions_on_bank_account_id"
   end
 
