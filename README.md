@@ -1,24 +1,3 @@
-# README
+![rspec](https://ruby.ci/badges/87c3dfd6-7690-4538-b073-8001980d1f13/rspec)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Lite Bank
