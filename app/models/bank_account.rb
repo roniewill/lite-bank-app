@@ -10,7 +10,7 @@ class BankAccount < ApplicationRecord
   enum status: %i[inactive active].freeze
 
   validates :account_number, presence: true, uniqueness: true
-  validates :balance, presence: true, numericality: true
+  validates :balance, presence: true
   validates :user_id, presence: true
   validates :status, presence: true
 
