@@ -11,6 +11,9 @@ class BankAccountsController < ApplicationController
   # GET /bank_accounts/1 or /bank_accounts/1.json
   def show
     @transaction = Transaction.new
+    @transactions = Transaction
+    .where(account_sender: current_account.account_number)
+    .or(Transaction.where(bank_account_id: current_account.id))
   end
 
   # GET /bank_accounts/new
@@ -68,6 +71,12 @@ class BankAccountsController < ApplicationController
   end
 
   private
+
+  def current_account 
+    @current_account ||= BankAccount
+    .where(user_id: current_user.id)
+    .find(params[:id])
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_bank_account
