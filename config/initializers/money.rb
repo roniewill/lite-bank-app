@@ -49,10 +49,10 @@ MoneyRails.configure do |config|
     priority: 100,
     iso_code: 'BRL',
     name: 'Brazilian Real',
-    symbol: 'R$',
+    symbol: 'R$ ',
     symbol_first: true,
     subunit: 'Centavo',
-    subunit_to_unit: 100,
+    subunit_to_unit: 1000,
     thousands_separator: '.',
     decimal_mark: ','
   }
