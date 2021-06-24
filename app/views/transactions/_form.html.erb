@@ -62,7 +62,20 @@
       }
     })
     
-    Inputmask("9", { repeat: 10 }).mask("#transaction_amount");
+    
     Inputmask("9", { repeat: 10 }).mask("#transaction_bank_account_id");
+    
+    Inputmask('currency',{
+      "autoUnmask": true,
+      radixPoint:",",
+      groupSeparator: ".",
+      allowMinus: false,
+      prefix: 'R$ ',
+      digits: 2,
+      digitsOptional: false,
+      rightAlign: true,
+      unmaskAsNumber: true
+    }).mask("#transaction_amount");
+  
   })
 </script>

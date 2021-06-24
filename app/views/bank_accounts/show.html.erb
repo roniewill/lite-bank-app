@@ -12,7 +12,7 @@
       <div class="card-body">
         <p>
           <strong>Saldo:</strong>
-          <%= format_value_BRL(@bank_account.balance) %>
+          <%= humanized_money_with_symbol @bank_account.balance %>
         </p>
 
         <p>

@@ -25,6 +25,17 @@
 
 <script>
   $(document).ready(function(){
-    Inputmask("9", { repeat: 10 }).mask("#bank_account_balance");
+    Inputmask('currency',{
+      "autoUnmask": true,
+      radixPoint:",",
+      groupSeparator: ".",
+      allowMinus: false,
+      prefix: 'R$ ',
+      digits: 2,
+      digitsOptional: false,
+      rightAlign: true,
+      unmaskAsNumber: true
+    }).mask("#bank_account_balance");
   });
+
 </script>

@@ -5,6 +5,8 @@ class BankAccount < ApplicationRecord
 
   has_many :transactions
 
+  monetize :balance, as: :balance_cents
+
   enum status: %i[inactive active].freeze
 
   validates :account_number, presence: true, uniqueness: true
@@ -30,4 +32,5 @@ class BankAccount < ApplicationRecord
       false
     end
   end
+
 end
