@@ -3,6 +3,9 @@
 class Transaction < ApplicationRecord
   belongs_to :bank_account
 
+  monetize :amount, as: :amount_cents
+  monetize :fee, as: :fee_cents
+
   TRANSACTION_TYPES = %w[transfer withdraw deposit].freeze
 
   validates :bank_account_id, presence: true
