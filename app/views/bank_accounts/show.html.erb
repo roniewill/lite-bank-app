@@ -67,7 +67,7 @@
             <% @transactions.each do |t| %>
               <tr>
                 <td><%= humanized_money_with_symbol t.amount %></td>
-                <td><%=  t.transaction_type %></td>
+                <td><%=  t.transaction_type == 'transfer' ? 'Transferência' : t.transaction_type == 'deposi' ? 'Deposito' : 'Saque' %></td>
                 <td><%=  humanized_money_with_symbol t.fee %></td>
                 <td><%=  l t.created_at, format: :long %></td>
               </tr>

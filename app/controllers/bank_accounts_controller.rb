@@ -5,7 +5,7 @@ class BankAccountsController < ApplicationController
 
   # GET /bank_accounts or /bank_accounts.json
   def index
-    @bank_accounts = BankAccount.where(user_id: current_user.id)
+    @bank_accounts = BankAccount.where(user_id: current_user.id).reverse_order
   end
 
   # GET /bank_accounts/1 or /bank_accounts/1.json
@@ -13,7 +13,7 @@ class BankAccountsController < ApplicationController
     @transaction = Transaction.new
     @transactions = Transaction
     .where(account_sender: current_account.account_number)
-    .or(Transaction.where(bank_account_id: current_account.id))
+    .or(Transaction.where(bank_account_id: current_account.id)).reverse_order
   end
 
   # GET /bank_accounts/new
