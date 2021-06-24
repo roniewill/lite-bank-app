@@ -1,6 +1,6 @@
 <div class="row justify-content-center mt-5">
 
-  <div class="col-lg-5 col-md-8 col-sm-8">
+  <div class="col-lg-4 col-md-8 col-sm-8">
     <div class="card shadow">
       <div class="card-title text-center border-bottom">
         <h2 class="p-3">
@@ -41,5 +41,44 @@
       </div>
     </div>
   </div>
+
+  <% if !@transactions.empty? %>
+  <div class="col-lg-6 col-md-8 col-sm-8">
+    <div class="card shadow">
+      <div class="card-title text-center border-bottom">
+        <h2 class="p-3">
+          <strong>Historico de Transações</strong>
+        </h2>
+      </div>
+
+      <div class="card-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Valor</th>
+              <th>Tipo de Transação</th>
+              <th>Taxa</th>
+              <th>Data da transação</th>
+              <th></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @transactions.each do |t| %>
+              <tr>
+                <td><%= humanized_money_with_symbol t.amount %></td>
+                <td><%=  t.transaction_type %></td>
+                <td><%=  humanized_money_with_symbol t.fee %></td>
+                <td><%=  l t.created_at, format: :long %></td>
+              </tr>
+            <% end %>
+          </tbody>
+      </div>
+      <div class="card-footer">
+        
+      </div>
+    </div>
+  </div>
+  <% end %>
 </div>
 
