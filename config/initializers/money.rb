@@ -1,7 +1,6 @@
-# encoding : utf-8
+# frozen_string_literal: true
 
 MoneyRails.configure do |config|
-
   # To set the default currency
   #
   config.default_currency = :brl
@@ -47,15 +46,15 @@ MoneyRails.configure do |config|
   #
   # Example:
   config.register_currency = {
-    priority:            100,
-    iso_code:            "BRL",
-    name:                "Brazilian Real",
-    symbol:              "R$",
-    symbol_first:        true,
-    subunit:             "Centavo",
-    subunit_to_unit:     100,
-    thousands_separator: ".",
-    decimal_mark:        ","
+    priority: 100,
+    iso_code: 'BRL',
+    name: 'Brazilian Real',
+    symbol: 'R$',
+    symbol_first: true,
+    subunit: 'Centavo',
+    subunit_to_unit: 100,
+    thousands_separator: '.',
+    decimal_mark: ','
   }
 
   # Specify a rounding mode

@@ -32,5 +32,4 @@ class BankAccount < ApplicationRecord
       false
     end
   end
-
 end

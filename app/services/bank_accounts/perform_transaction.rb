@@ -5,7 +5,7 @@ module BankAccounts
     BASE_FEE = 5
     HIGHER_FEE = 7
     ADIOTIONAL_FEE = 10
-    BUSINESS_HOURS = 9..18
+    BUSINESS_HOURS = (9..18).freeze
 
     def initialize(transaction_params)
       params = OpenStruct.new(transaction_params)
@@ -23,7 +23,7 @@ module BankAccounts
           amount: @amount,
           transaction_type: @transaction_type,
           account_sender: @account_sender.account_number,
-					fee: get_fee
+          fee: get_fee
         )
 
         case @transaction_type
@@ -43,21 +43,21 @@ module BankAccounts
     private
 
     def get_fee
-			if @transaction_type == 'transfer'
+      if @transaction_type == 'transfer'
         return generate_fee + ADIOTIONAL_FEE if @amount >= 1000
-			
-			  generate_fee
+
+        generate_fee
       else
         0
       end
-		end
+    end
 
     def generate_fee
       return BASE_FEE if working_hour?(Time.current)
-    
+
       HIGHER_FEE
     end
-    
+
     def working_hour?(time)
       time.on_weekday? && time.hour.in?(BUSINESS_HOURS)
     end
