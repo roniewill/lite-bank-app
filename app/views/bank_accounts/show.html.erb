@@ -42,7 +42,7 @@
     </div>
   </div>
 
-  <% if !@transactions.empty? %>
+  <% if !@transactions.empty? || params[:commit].present? %>
   <div class="col-lg-6 col-md-10 col-sm-12">
     <div class="card shadow">
       <div class="card-title text-center border-bottom">
@@ -101,10 +101,9 @@
 <script>
   $(document).ready(function(){
     $('input[name="commit"]').attr('disabled', true);
-    $('input[type="text"]').on('focus', function () {
+    $('input[type="date"]').change( function () {
         start_date = $('input[name="start_date"]').val(); 
-        end_date = $('input[name="end_date"]').val(); 
-        console.log(start_date)
+        end_date = $('input[name="end_date"]').val();
         if (start_date != '' && end_date != '') {
             $('input[name="commit"]').attr('disabled', false);
         } else {
