@@ -11,9 +11,9 @@ class BankAccountsController < ApplicationController
   # GET /bank_accounts/1 or /bank_accounts/1.json
   def show
     @transaction = Transaction.new
-    @transactions = Transaction
-    .where(account_sender: current_account.account_number)
-    .or(Transaction.where(bank_account_id: current_account.id)).reverse_order
+
+    @transactions = Transaction.search_by_date(start_date: params[:start_date], end_date: params[:end_date])
+    .from_account(current_account)
   end
 
   # GET /bank_accounts/new

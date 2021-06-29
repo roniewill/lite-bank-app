@@ -1,6 +1,6 @@
 <div class="row justify-content-center mt-5">
 
-  <div class="col-lg-4 col-md-8 col-sm-8">
+  <div class="col-lg-4 mb-3 col-md-10 col-sm-12">
     <div class="card shadow">
       <div class="card-title text-center border-bottom">
         <h2 class="p-3">
@@ -43,7 +43,7 @@
   </div>
 
   <% if !@transactions.empty? %>
-  <div class="col-lg-6 col-md-8 col-sm-8">
+  <div class="col-lg-6 col-md-10 col-sm-12">
     <div class="card shadow">
       <div class="card-title text-center border-bottom">
         <h2 class="p-3">
@@ -52,13 +52,29 @@
       </div>
 
       <div class="card-body">
+        <%= form_with(url: bank_account_path, method: :get, :html => {:class => "d-flex"} ) do |f| %>  
+          <div class="d-flex flex-row bd-highlight mb-3">
+            <div class="p-2 bd-highlight">
+              <%= f.label 'Data inicial', class: "form-label" %>
+              <%= f.date_field :start_date, class: "form-control", 'datepicker' => true  %>
+            </div>
+            <div class="p-2 bd-highlight">
+              <%= f.label 'Data final', class: "form-label" %>
+              <%= f.date_field :end_date, class: "form-control", 'datepicker' => true  %>
+            </div>
+            <div class="d-flex align-items-center mt-1">
+              <%= f.submit "Buscar", class: "btn mt-4 btn-primary" %>
+            </div>
+          </div>
+        <% end %>
+
         <table class="table">
           <thead>
             <tr>
               <th>Valor</th>
               <th>Tipo de Transação</th>
               <th>Taxa</th>
-              <th>Data da transação</th>
+              <th>Data da Transação</th>
               <th></th>
             </tr>
           </thead>
@@ -82,3 +98,18 @@
   <% end %>
 </div>
 
+<script>
+  $(document).ready(function(){
+    $('input[name="commit"]').attr('disabled', true);
+    $('input[type="text"]').on('focus', function () {
+        start_date = $('input[name="start_date"]').val(); 
+        end_date = $('input[name="end_date"]').val(); 
+        console.log(start_date)
+        if (start_date != '' && end_date != '') {
+            $('input[name="commit"]').attr('disabled', false);
+        } else {
+            $('input[name="commit"]').attr('disabled', true);
+        }
+    });
+  });
+</script>
