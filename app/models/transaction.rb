@@ -6,7 +6,7 @@ class Transaction < ApplicationRecord
   monetize :amount, as: :amount_cents
   monetize :fee, as: :fee_cents
 
-  scope :search_by_date, ->(start_date: nil, end_date: nil) {
+  scope :search_by_date, lambda { |start_date: nil, end_date: nil|
     if start_date.present? && end_date.present? then between_dates(start_date: start_date, end_date: end_date)
     elsif start_date.present? && end_date.blank? then starting_on(start_date)
     elsif start_date.blank? && end_date.present? then ending_on(end_date)
@@ -15,24 +15,24 @@ class Transaction < ApplicationRecord
     end
   }
 
-  scope :between_dates, ->(start_date:, end_date:) {
+  scope :between_dates, lambda { |start_date:, end_date:|
     start_at = Date.parse(start_date).beginning_of_day
     end_at = Date.parse(end_date).end_of_day
 
     where(created_at: start_at..end_at)
   }
 
-  scope :starting_on, ->(date){
+  scope :starting_on, lambda { |date|
     where(created_at: Date.parse(date).beginning_of_day..)
   }
 
-  scope :ending_on, ->(end_date){
+  scope :ending_on, lambda { |_end_date|
     where(created_at: ..Date.parse(date).end_of_day)
   }
 
-  scope :from_account, -> (current_account){
+  scope :from_account, lambda { |current_account|
     where(account_sender: current_account.account_number)
-    .or(where(bank_account_id: current_account.id)).reverse_order
+      .or(where(bank_account_id: current_account.id)).reverse_order
   }
 
   TRANSACTION_TYPES = %w[transfer withdraw deposit].freeze

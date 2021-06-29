@@ -13,7 +13,7 @@ class BankAccountsController < ApplicationController
     @transaction = Transaction.new
 
     @transactions = Transaction.search_by_date(start_date: params[:start_date], end_date: params[:end_date])
-    .from_account(current_account)
+                               .from_account(current_account)
   end
 
   # GET /bank_accounts/new
@@ -72,10 +72,10 @@ class BankAccountsController < ApplicationController
 
   private
 
-  def current_account 
+  def current_account
     @current_account ||= BankAccount
-    .where(user_id: current_user.id)
-    .find(params[:id])
+                         .where(user_id: current_user.id)
+                         .find(params[:id])
   end
 
   # Use callbacks to share common setup or constraints between actions.
