@@ -1,0 +1,23 @@
+name: deploy
+on:
+  workflow_dispatch:
+    inputs:
+      commit:
+        description: "Commit. ex: dd9914"
+        required: true
+      branch_name:
+        description: "Branch main"
+        required: true
+      runner_statuses:
+        description: "Status of the other runs. ex: {rspec: 'passed', simplecov: 'passed'}"
+        required: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "lite-bank-app"
+          heroku_email: "roniewill@gmail.com"
