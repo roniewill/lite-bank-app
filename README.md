@@ -120,10 +120,11 @@ $ rails server
 
 ---
 
-## Tech Stack
+## 🛠 Tech Stack
 
 ### The following tools were used in the construction of the project:
 
+#### **Main Tools**
 
 -   **[Ruby 2.7.2](https://www.ruby-lang.org/en/downloads/)**
 -   **[Rails 6.1.3](https://github.com/rails/rails/tree/v6.1.3)**
@@ -148,3 +149,22 @@ $ rails server
 - **[Dotenv-Rails](https://github.com/bkeepers/dotenv)**
 
 ---
+
+## Contributors
+
+<p align="center">Coming soon :)</p>
+
+## How to contribute
+
+1. Fork the project.
+2. Create a new branch with your changes: `git checkout -b my-feature`
+3. Save your changes and create a commit message telling you what you did: `git commit -m" feature: My new feature "`
+4. Submit your changes: `git push origin my-feature`
+
+---
+
+## License
+
+This project is under the license [MIT](./LICENSE).
+
+Made with a lot of love and dedication by Ramon William 👋🏽 [Get in Touch!](Https://www.linkedin.com/in/ramonwilliam/)
