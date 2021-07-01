@@ -24,13 +24,13 @@
 
 <p align="center">
  <a href="#-about-the-project">About</a> •
- <a href="#-functionalities">Functionalities</a> •
+ <a href="#-features">Features</a> •
  <a href="#-layout">Layout</a> • 
- <a href="#-how-to-run-the-project">How to run the project</a> • 
+ <a href="#-how-it-works">How it works</a> • 
  <a href="#-technologies">Technologies</a> • 
  <a href="#-contributors">Contributors</a> • 
  <a href="#-author">Author</a> • 
- <a href="#user-content--lisence">Lisence</a>
+ <a href="#-user-content--lisence">Lisence</a>
 </p>
 
 
@@ -40,26 +40,26 @@ Lite Bank - It is a very simple bank account management system with the purpose 
 
 ---
 
-## ⚙️ Functionalities
+## ⚙️ Features
 
 - [x] User can register using: 
-  - [x] Full name 
-  - [x] Email 
-  - [x] Password 
+  - Full name 
+  - Email 
+  - Password 
 
 - [x] User can login using: 
-  - [x] Email 
-  - [x] Password 
+  - Email 
+  - Password 
   
 - [x] Users have access to the following features: 
-  - [x] create one or more accounts with a value from 0 to x 
-  - [x] close account if it has a balance equal to 0 
-  - [x] can see account details on contains more functions 
-  - [x] can transfer amounts to other accounts 
-  - [x] can deposit 
-  - [x] can withdraw 
-  - [x] can see all transactions once they have made one 
-  - [x] can filter transactions by start and end date
+  - create one or more accounts with a value from 0 to x 
+  - close account if it has a balance equal to 0 
+  - can see account details on contains more functions 
+  - can transfer amounts to other accounts 
+  - can deposit 
+  - can withdraw 
+  - can see all transactions once they have made one 
+  - can filter transactions by start and end date
 
 ---
 
@@ -81,3 +81,38 @@ Lite Bank - It is a very simple bank account management system with the purpose 
 </p>
 
 ---
+
+## 🚀 How it works
+
+### Pre-requisites
+
+Before starting, you will need to have the following tools installed and properly configured on your machine:
+[Git](https://git-scm.com), [Ruby 2.7.2](https://www.ruby-lang.org/), [https://rubyonrails.org/](https://nodejs.org/en/), [Node.js](https://nodejs.org/en/), [Yarn](https://yarnpkg.com/) and [PostgeSQL](https://www.postgresql.org/). 
+Also it's nice to have an editor to work with code like [VSCode](https://code.visualstudio.com/)
+
+#### RUN
+
+```bash
+# Install bundler
+$ gem install bundler
+
+# Clone this repository
+$ git clone git@github.com:roniewill/lite-bank-app.git
+
+# Access the project folder cmd/terminal
+$ cd lite-bank-app
+
+# open the project with a code editor of your choice
+$ code .
+
+# rename the .env.local file to .env and set the access data in the variables
+
+# then run the commands on your terminal
+$ bundle install
+$ yarn install
+$ rails db:create db:migrate
+$ rails server 
+# or: rails s
+# The server will start by default at port: 3000 - go to http://localhost:3000
+
+```
