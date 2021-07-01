@@ -21,17 +21,17 @@ RSpec.describe Transaction, type: :model do
     expect(@transaction).to_not be_valid
   end
 
-  it 'is not valid without a amount' do
+  it 'is not valid without others params' do
     @transaction.transaction_type = 'payment'
     expect(@transaction).to_not be_valid
   end
 
-  it 'is not valid without a amount' do
+  it 'is not valid without others params' do
     @transaction.transaction_number = 123_456
     expect(@transaction).to_not be_valid
   end
 
-  it 'is not valid without a amount' do
+  it 'is not valid without a transaction number' do
     @transaction.transaction_number = nil
     expect(@transaction).to_not be_valid
   end
