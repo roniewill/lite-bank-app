@@ -40,6 +40,7 @@ Lite Bank - It is a very simple bank account management system with the purpose 
 
 ---
 
+
 ## ⚙️ Features
 
 - [x] User can register using: 
@@ -63,6 +64,7 @@ Lite Bank - It is a very simple bank account management system with the purpose 
 
 ---
 
+
 ## 🎨 Layout
 
 ### Mobile
@@ -81,6 +83,7 @@ Lite Bank - It is a very simple bank account management system with the purpose 
 </p>
 
 ---
+
 
 ## 🚀 How it works
 
@@ -120,6 +123,7 @@ $ rails server
 
 ---
 
+
 ## 🛠 Tech Stack
 
 ### The following tools were used in the construction of the project:
@@ -150,6 +154,7 @@ $ rails server
 
 ---
 
+
 ## Contributors
 
 <p align="center">Coming soon :)</p>
@@ -162,6 +167,7 @@ $ rails server
 4. Submit your changes: `git push origin my-feature`
 
 ---
+
 
 ## License
 
