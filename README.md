@@ -30,7 +30,6 @@
  <a href="#-tech-stack">Tech Stack</a> • 
  <a href="#contributors">Contributors</a> • 
  <a href="#lisence">Lisence</a>
- <a href="#demo">DEMO</a>
 </p>
 
 
@@ -153,10 +152,6 @@ $ rails server
 - **[Dotenv-Rails](https://github.com/bkeepers/dotenv)**
 
 ---
-
-## DEMO
-
-- [Lite Bank](https://lite-bank-app.herokuapp.com/)
 
 
 ## Contributors
