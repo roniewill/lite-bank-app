@@ -87,7 +87,7 @@ Lite Bank - It is a very simple bank account management system with the purpose 
 ### Pre-requisites
 
 Before starting, you will need to have the following tools installed and properly configured on your machine:
-[Git](https://git-scm.com), [Ruby 2.7.2](https://www.ruby-lang.org/), [https://rubyonrails.org/](https://nodejs.org/en/), [Node.js](https://nodejs.org/en/), [Yarn](https://yarnpkg.com/) and [PostgeSQL](https://www.postgresql.org/). 
+[Git](https://git-scm.com), [Ruby 2.7.2](https://www.ruby-lang.org/), [Rails 6.1.3](https://rubyonrails.org/), [Node.js](https://nodejs.org/en/), [Yarn](https://yarnpkg.com/) and [PostgeSQL](https://www.postgresql.org/). 
 Also it's nice to have an editor to work with code like [VSCode](https://code.visualstudio.com/)
 
 #### RUN
