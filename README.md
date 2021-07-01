@@ -87,12 +87,13 @@ Lite Bank - It is a very simple bank account management system with the purpose 
 ### Pre-requisites
 
 Before starting, you will need to have the following tools installed and properly configured on your machine:
-[Git](https://git-scm.com), [Ruby 2.7.2](https://www.ruby-lang.org/), [Rails 6.1.3](https://rubyonrails.org/), [Node.js](https://nodejs.org/en/), [Yarn](https://yarnpkg.com/) and [PostgeSQL](https://www.postgresql.org/). 
+[Git](https://git-scm.com), [Ruby 2.7.2](https://www.ruby-lang.org/), [Rails 6.1.3](https://rubyonrails.org/), [Node.js](https://nodejs.org/en/), [Yarn](https://yarnpkg.com/) and [PostgreSQL](https://www.postgresql.org/). 
 Also it's nice to have an editor to work with code like [VSCode](https://code.visualstudio.com/)
 
 #### RUN
 
 ```bash
+# Once Ruby and Rails are properly installed, follow the next steps:
 # Install bundler
 $ gem install bundler
 
@@ -116,3 +117,32 @@ $ rails server
 # The server will start by default at port: 3000 - go to http://localhost:3000
 
 ```
+
+---
+
+## Tech Stack
+
+### The following tools were used in the construction of the project:
+
+
+-   **[Ruby 2.7.2](https://www.ruby-lang.org/en/downloads/)**
+-   **[Rails 6.1.3](https://github.com/rails/rails/tree/v6.1.3)**
+-   **[PostgreSQL](https://www.postgresql.org/)**
+-   **[Node LTS](https://nodejs.org/en/)**
+-   **[Yarn](https://yarnpkg.com/)**
+-   **[Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/download/)**
+-   **[JQuery](https://blog.jquery.com/2021/03/02/jquery-3-6-0-released/)**
+
+
+#### **Utilities**
+
+-   Tests:  **[RSPec](https://rspec.info/)**
+-   Static code analyzer :  **[RuboCop](https://github.com/rubocop/rubocop)**
+-   Manager User :  **[Devise](https://github.com/heartcombo/devise)**
+-   Plugins:  
+  - **[Toastr](https://github.com/CodeSeven/toastr)**
+  - **[Inputmask](https://github.com/RobinHerbots/Inputmask)**
+  - **[Money-Rails](https://github.com/RubyMoney/money-rails/)**
+  - **[Dotenv-Rails](https://github.com/bkeepers/dotenv)**
+
+---
