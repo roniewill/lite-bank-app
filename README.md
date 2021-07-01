@@ -15,7 +15,7 @@
   </a>
 
   <a href="https://www.linkedin.com/in/ramonwilliam/" target="_blank">
-    <img alt="Feito por Ramon William" src="https://img.shields.io/badge/Feito%20por-Ramon%20William-blue?style=flat-square&logo=appveyor">
+    <img alt="Made by Ramon William" src="https://img.shields.io/badge/Made%20by-Ramon%20William-blue?style=flat-square&logo=appveyor">
   </a>
 </p>
 
