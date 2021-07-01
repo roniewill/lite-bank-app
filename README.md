@@ -8,14 +8,14 @@
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/roniewill/README-ecoleta">
   </a>
     
-  <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen?style=flat-square&logo=appveyor">
   
-  <a href="https://github.com/roniewill/README-ecoleta/stargazers">
-    <img alt="Stargazers" src="	https://img.shields.io/github/stars/roniewill/lite-bank-app?style=for-the-badge&logo=appveyor">
+  <a href="https://github.com/roniewill/lite-bank-app/stargazers">
+    <img alt="Stargazers" src="	https://img.shields.io/github/stars/roniewill/lite-bank-app?style=flat-square&logo=appveyor">
   </a>
 
   <a href="https://www.linkedin.com/in/ramonwilliam/">
-    <img alt="Feito por Ramon William" src="https://img.shields.io/badge/Feito%20por-Ramon%20William-blue?style=for-the-badge&logo=appveyor">
+    <img alt="Feito por Ramon William" src="https://img.shields.io/badge/Feito%20por-Ramon%20William-blue?style=flat-square&logo=appveyor">
   </a>
 </p>
 
