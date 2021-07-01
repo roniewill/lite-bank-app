@@ -21,11 +21,6 @@ RSpec.describe Transaction, type: :model do
     expect(@transaction).to_not be_valid
   end
 
-  it 'it is not valid only with the parameter transaction_type' do
-    @transaction.transaction_type = 'payment'
-    expect(@transaction).to_not be_valid
-  end
-
   it 'is not valid without others params' do
     @transaction.transaction_number = 123_456
     expect(@transaction).to_not be_valid
