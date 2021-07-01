@@ -28,8 +28,8 @@
  <a href="#-layout">Layout</a> • 
  <a href="#-how-it-works">How it works</a> • 
  <a href="#-tech-stack">Tech Stack</a> • 
- <a href="#-contributors">Contributors</a> • 
- <a href="#-lisence">Lisence</a>
+ <a href="#contributors">Contributors</a> • 
+ <a href="#lisence">Lisence</a>
 </p>
 
 
