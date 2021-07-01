@@ -14,9 +14,24 @@
     <img alt="Stargazers" src="https://img.shields.io/github/stars/roniewill/lite-bank-app?style=flat-square&logo=appveyor">
   </a>
 
-  <a href="https://www.linkedin.com/in/ramonwilliam/" target="_blank">
+  <a href="https://www.linkedin.com/in/ramonwilliam/">
     <img alt="Made by Ramon William" src="https://img.shields.io/badge/Made%20by-Ramon%20William-blue?style=flat-square&logo=appveyor">
   </a>
 </p>
 
-# Lite Bank
+
+
+<h1 align="center"> 
+	# Lite Bank
+</h1>
+
+<p align="center">
+ <a href="#-about-the-project">About</a> •
+ <a href="#-functionalities">functionalities</a> •
+ <a href="#-layout">Layout</a> • 
+ <a href="#-how-to-run-the-project">How to run the project</a> • 
+ <a href="#-technologies">Technologies</a> • 
+ <a href="#-contributors">Contributors</a> • 
+ <a href="#-author">Author</a> • 
+ <a href="#user-content--lisence">Lisence</a>
+</p>
