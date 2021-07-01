@@ -20,12 +20,11 @@
 </p>
 
 
-
 <h1 align="center"> Lite Bank </h1>
 
 <p align="center">
  <a href="#-about-the-project">About</a> •
- <a href="#-functionalities">functionalities</a> •
+ <a href="#-functionalities">Functionalities</a> •
  <a href="#-layout">Layout</a> • 
  <a href="#-how-to-run-the-project">How to run the project</a> • 
  <a href="#-technologies">Technologies</a> • 
@@ -34,9 +33,32 @@
  <a href="#user-content--lisence">Lisence</a>
 </p>
 
+
 ## 💻 About the project
 
 Lite Bank - It is a very simple bank account management system with the purpose of providing a friendly environment for users to carry out the procedures most used in bank accounts as: Transfer, Deposit, Withdraw and Transactions Report.
 
 ---
 
+## ⚙️ Functionalities
+
+- [x] User can register using: 
+  - [x] Full name 
+  - [x] Email 
+  - [x] Password 
+
+- [x] User can login using: 
+  - [x] Email 
+  - [x] Password 
+  
+- [x] Users have access to the following features: 
+  - [x] create one or more accounts with a value from 0 to x 
+  - [x] close account if it has a balance equal to 0 
+  - [x] can see account details on contains more functions 
+  - [x] can transfer amounts to other accounts 
+  - [x] can deposit 
+  - [x] can withdraw 
+  - [x] can see all transactions once they have made one 
+  - [x] can filter transactions by start and end date
+
+---
