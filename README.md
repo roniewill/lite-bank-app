@@ -10,8 +10,8 @@
     
   <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen?style=flat-square&logo=appveyor">
   
-  <a href="https://github.com/roniewill/lite-bank-app/stargazers">
-    <img alt="Stargazers" src="	https://img.shields.io/github/stars/roniewill/lite-bank-app?style=flat-square&logo=appveyor">
+  <a href="https://github.com/roniewill/lite-bank-app">
+    <img alt="Stargazers" src="https://img.shields.io/github/stars/roniewill/lite-bank-app?style=flat-square&logo=appveyor">
   </a>
 
   <a href="https://www.linkedin.com/in/ramonwilliam/">
