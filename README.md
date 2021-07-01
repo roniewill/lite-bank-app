@@ -139,10 +139,12 @@ $ rails server
 -   Tests:  **[RSPec](https://rspec.info/)**
 -   Static code analyzer :  **[RuboCop](https://github.com/rubocop/rubocop)**
 -   Manager User :  **[Devise](https://github.com/heartcombo/devise)**
--   Plugins:  
-  * **[Toastr](https://github.com/CodeSeven/toastr)**
-  * **[Inputmask](https://github.com/RobinHerbots/Inputmask)**
-  * **[Money-Rails](https://github.com/RubyMoney/money-rails/)**
-  * **[Dotenv-Rails](https://github.com/bkeepers/dotenv)**
+
+#### **Plugins**
+
+- **[Toastr](https://github.com/CodeSeven/toastr)**
+- **[Inputmask](https://github.com/RobinHerbots/Inputmask)**
+- **[Money-Rails](https://github.com/RubyMoney/money-rails/)**
+- **[Dotenv-Rails](https://github.com/bkeepers/dotenv)**
 
 ---
