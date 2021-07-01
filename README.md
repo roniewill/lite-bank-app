@@ -62,3 +62,22 @@ Lite Bank - It is a very simple bank account management system with the purpose 
   - [x] can filter transactions by start and end date
 
 ---
+
+## 🎨 Layout
+
+### Mobile
+
+<p align="center">Coming soon</p>
+
+### Web
+
+<p align="center" style="display: flex; align-items: flex-start; justify-content: center;">
+  <img alt="LiteBanApp" title="#LiteBanApp" src="./public/layouts/signup.png" width="400px">
+  <img alt="LiteBanApp" title="#LiteBanApp" src="./public/layouts/login.png" width="400px">
+  <img alt="LiteBanApp" title="#LiteBanApp" src="./public/layouts/account-list.png" width="400px">
+  <img alt="LiteBanApp" title="#LiteBanApp" src="./public/layouts/account-detail.png" width="400px">
+  <img alt="LiteBanApp" title="#LiteBanApp" src="./public/layouts/new-transaction.png" width="400px">
+  <img alt="LiteBanApp" title="#LiteBanApp" src="./public/layouts/report-transactions.png" width="400px">
+</p>
+
+---
