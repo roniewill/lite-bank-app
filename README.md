@@ -23,18 +23,17 @@
 <h1 align="center"> Lite Bank </h1>
 
 <p align="center">
- <a href="#-about-the-project">About</a> •
+ <a href="#-about">About</a> •
  <a href="#-features">Features</a> •
  <a href="#-layout">Layout</a> • 
  <a href="#-how-it-works">How it works</a> • 
- <a href="#-technologies">Technologies</a> • 
+ <a href="#-tech-stack">Tech Stack</a> • 
  <a href="#-contributors">Contributors</a> • 
- <a href="#-author">Author</a> • 
- <a href="#-user-content--lisence">Lisence</a>
+ <a href="#-lisence">Lisence</a>
 </p>
 
 
-## 💻 About the project
+## 💻 About
 
 Lite Bank - It is a very simple bank account management system with the purpose of providing a friendly environment for users to carry out the procedures most used in bank accounts as: Transfer, Deposit, Withdraw and Transactions Report.
 
