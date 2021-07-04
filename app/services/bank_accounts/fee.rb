@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module BankAccounts
   class Fee < ApplicationService
     BASE_FEE = 5
@@ -33,6 +35,5 @@ module BankAccounts
     def working_hour?(time)
       time.on_weekday? && time.hour.in?(BUSINESS_HOURS)
     end
-  
   end
 end
