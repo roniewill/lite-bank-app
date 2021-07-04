@@ -5,17 +5,24 @@ module BankAccounts
     ADIOTIONAL_FEE = 10
     BUSINESS_HOURS = (9..18).freeze
 
-    def self.get_fee transaction_type, amount
-      if transaction_type == 'transfer'
-        return generate_fee + ADIOTIONAL_FEE if amount >= 1000
+    def initialize(amount: nil, transaction_type: nil)
+      @amount = amount
+      @transaction_type = transaction_type
+    end
+
+    def call
+      get_fee
+    end
+
+    def get_fee
+      if @transaction_type == 'transfer'
+        return generate_fee + ADIOTIONAL_FEE if @amount >= 1000
 
         generate_fee
       else
         0
       end
     end
-
-    private
 
     def generate_fee
       return BASE_FEE if working_hour?(Time.current)
