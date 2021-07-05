@@ -14,8 +14,6 @@ module BankAccounts
       @bank_account_id = params.bank_account_id
       @account_sender = BankAccount.find_by(account_number: params.account_sender)
       @receiver_account = BankAccount.find_by(id: @bank_account_id)
-      @fee = ::BankAccounts::Fee.call(transaction_type: params.transaction_type,
-                                      amount: params.amount.to_f)
     end
 
     def call
@@ -25,7 +23,7 @@ module BankAccounts
           amount: @amount,
           transaction_type: @transaction_type,
           account_sender: @account_sender.account_number,
-          fee: @fee
+          fee: fee
         )
 
         case @transaction_type
@@ -34,12 +32,19 @@ module BankAccounts
         when 'deposit'
           @account_sender.update!(balance: @account_sender.balance.to_f + @amount)
         when 'transfer'
-          @account_sender.update!(balance: (@account_sender.balance.to_f - (@amount + @fee)))
+          @account_sender.update!(balance: (@account_sender.balance.to_f - (@amount + fee)))
           @receiver_account.update!(balance: @receiver_account.balance.to_f + @amount)
         end
       end
 
       @account_sender
+    end
+
+    private
+
+    def fee
+      tax = ::BankAccounts::Fee.call(transaction_type: @transaction_type,
+        amount: @amount.to_f)
     end
   end
 end
