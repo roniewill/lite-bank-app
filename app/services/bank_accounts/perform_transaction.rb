@@ -15,7 +15,7 @@ module BankAccounts
       @account_sender = BankAccount.find_by(account_number: params.account_sender)
       @receiver_account = BankAccount.find_by(id: @bank_account_id)
       @fee = ::BankAccounts::Fee.call(transaction_type: params.transaction_type,
-        amount: params.amount.to_f)
+                                      amount: params.amount.to_f)
     end
 
     def call
