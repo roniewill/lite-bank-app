@@ -44,7 +44,7 @@ module BankAccounts
 
     def fee
       tax = ::BankAccounts::Fee.call(transaction_type: @transaction_type,
-        amount: @amount.to_f)
+                                     amount: @amount.to_f)
     end
   end
 end
