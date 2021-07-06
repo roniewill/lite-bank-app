@@ -8,6 +8,7 @@
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.4.0",
     "bootstrap": "5.0.1",
+    "flatpickr": "^4.6.9",
     "inputmask": "^5.0.6",
     "jquery": "^3.6.0",
     "toastr": "^2.1.4",

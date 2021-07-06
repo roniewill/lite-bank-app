@@ -110,5 +110,23 @@
             $('input[name="commit"]').attr('disabled', true);
         }
     });
+
+    // VALIDATE DATE
+    $("#start_date").datepicker({
+        numberOfMonths: 2,
+        onSelect: function (selected) {
+            dt = new Date(selected);
+            dt.setDate(dt.getDate() + 1);
+            $("#end_date").datepicker("option", "minDate", dt);
+        }
+    });
+    $("#end_date").datepicker({
+        numberOfMonths: 2,
+        onSelect: function (selected) {
+            var dt = new Date(selected);
+            dt.setDate(dt.getDate() - 1);
+            $("#start_date").datepicker("option", "maxDate", dt);
+        }
+    });
   });
 </script>

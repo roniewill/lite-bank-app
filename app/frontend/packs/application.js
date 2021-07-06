@@ -14,6 +14,8 @@ import '../js/bootstrap_js_files.js'
 
 global.toastr = require("toastr")
 
+require("flatpickr")
+import flatpickr from "flatpickr";
 
 Rails.start()
 Turbolinks.start()
