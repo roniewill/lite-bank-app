@@ -14,9 +14,20 @@ import '../js/bootstrap_js_files.js'
 
 global.toastr = require("toastr")
 
-require("flatpickr")
-import flatpickr from "flatpickr";
+import "controllers"
+import flatpickr from "flatpickr"
+require("flatpickr/dist/flatpickr.css")
+
+document.addEventListener("turbolinks:load", () => {
+  flatpickr("[data-behavior='flatpickr']", {
+    altInput: true,
+    altFormat: "j F, Y",
+    dateFormat: "Y-m-d",
+  })
+})
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+import "controllers"
