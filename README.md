@@ -1,6 +1,4 @@
 
-11
-
 
 <p align="center">
   <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/roniewill/lite-bank-app?style=flat-square&logo=appveyor">
